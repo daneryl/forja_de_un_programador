@@ -41,4 +41,25 @@ describe('Father', function(){
       father.do(actions).toString().should.be.exactly('6 horas 40 minutos');
     });
   });
+
+  describe('when doing "Pañal Alimentar" action', function(){
+    it('should sleep 1h 15m less', function(){
+      var actions = 'Pañal Alimentar';
+      father.do(actions).toString().should.be.exactly('6 horas 45 minutos');
+    });
+  });
+
+  describe('when doing "Alimentar Chupón" action', function(){
+    it('should sleep 1h 5m less', function(){
+      var actions = 'Alimentar Chupón';
+      father.do(actions).toString().should.be.exactly('6 horas 55 minutos');
+    });
+  });
+
+  describe('when doing "Chupón Alimentar Pañal" action', function(){
+    it('should sleep 1h 5m less', function(){
+      var actions = 'Chupón Alimentar Pañal';
+      father.do(actions).toString().should.be.exactly('6 horas 45 minutos');
+    });
+  });
 });
