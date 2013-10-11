@@ -7,10 +7,11 @@ var action_times_in_minutes = {
 };
 
 var sleep_time = require('./sleep_time.js');
+var actions_factory = require('./actions.js');
 
 module.exports = {
   hear: function(baby) {
-    var actions = require('./actions.js').new();
+    var actions = actions_factory.new();
 
     baby.when_cry(function(crying) {
       actions.add(crying);

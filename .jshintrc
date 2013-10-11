@@ -19,9 +19,7 @@
   "trailing": true,
   "smarttabs": true,
   "globals": {
-    "angular": true, "describe": true, "beforeEach": true,
-    "expect": true, "it": true, "inject": true, "spyOn": true,
-    "$provide": true, "xdescribe": true, "xit": true, "iit": true,
-    "$":true, "jasmine":true, "afterEach": true, "XDate": true
+    "describe": true, "beforeEach": true,
+    "expect": true, "it": true
   }
 }
