@@ -37,22 +37,22 @@ describe('Father', function(){
     });
   });
 
-  describe('when hears "Mua-Gua-Mua-Bua"', function(){
-    it('should do "Pañal - Chupón - Pañal - Alimentar"', function(){
-      baby.awake('Mua-Gua-Mua-Bua');
-      var expected_action = 'Pañal - Chupón - Pañal - Alimentar';
+  describe('when hears "Bua-Mua-Bua-Bua"', function(){
+    it('should do "Alimentar - Pañal Alimentar - Alimentar"', function(){
+      baby.awake('Bua-Mua-Bua-Bua');
+      var expected_action = 'Alimentar - Pañal Alimentar - Alimentar';
 
       father.hear(baby).should.be.exactly(expected_action);
     });
   });
 
-  //describe('when hears "Bua-Mua-Bua-Bua"', function(){
-    //it('should do "Alimentar - Pañal Alimentar - Alimentar"', function(){
-      //baby.awake('Bua-Mua-Bua-Bua');
-      //var expected_action = 'Alimentar - Pañal Alimentar - Alimentar';
+  describe('when hears "Mua-Bua-Bua-Gua-Mua-Bua-Gua-Bua"', function(){
+    it('should do "Pañal Alimentar - Alimentar Chupón - Pañal Alimentar - Chupón - Alimentar"', function(){
+      baby.awake('Mua-Bua-Bua-Gua-Mua-Bua-Gua-Bua');
+      var expected_action = 'Pañal Alimentar - Alimentar Chupón - Pañal Alimentar - Chupón - Alimentar';
 
-      //father.hear(baby).should.be.exactly(expected_action);
-    //});
-  //});
+      father.hear(baby).should.be.exactly(expected_action);
+    });
+  });
 
 });

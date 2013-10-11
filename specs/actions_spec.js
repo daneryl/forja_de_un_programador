@@ -39,6 +39,42 @@ describe('actions', function(){
       actions.actions = ['Action', 'Action2'];
       actions.toString().should.be.exactly('Action - Action2');
     });
+
+    describe('with "Mua-Bua" special case', function(){
+      it('should concatenate like "Pañal Alimentar"', function(){
+        actions.add('Bua');
+        actions.add('Mua');
+        actions.add('Bua');
+        actions.toString().should.be.exactly('Alimentar - Pañal Alimentar');
+      });
+    });
+
+    describe('with "Bua-Gua" special case', function(){
+      it('should concatenate like "Alimentar Chupón"', function(){
+        actions.add('Bua');
+        actions.add('Gua');
+        actions.add('Bua');
+        actions.toString().should.be.exactly('Alimentar Chupón - Alimentar');
+      });
+    });
+    describe('with "Bua-Gua" special case', function(){
+      it('should concatenate like "Alimentar Chupón"', function(){
+        actions.add('Bua');
+        actions.add('Gua');
+        actions.add('Bua');
+        actions.toString().should.be.exactly('Alimentar Chupón - Alimentar');
+      });
+    });
+    describe('with "Gua-Bua-Mua" special case', function(){
+      it('should concatenate like "Chupón Alimentar Pañal"', function(){
+        actions.add('Gua');
+        actions.add('Gua');
+        actions.add('Bua');
+        actions.add('Mua');
+        actions.toString().should.be.exactly('Chupón - Chupón Alimentar Pañal');
+      });
+    });
   });
+
 
 });
