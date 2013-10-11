@@ -1,10 +1,12 @@
 'use strict';
 
-//var action_times_in_minutes = {
-  //'Chupón': 10,
-  //'Pañal': 30,
-  //'Alimentar': 60
-//};
+var action_times_in_minutes = {
+  'Chupón': 10,
+  'Pañal': 30,
+  'Alimentar': 60
+};
+
+var sleep_time = require('./sleep_time.js');
 
 module.exports = {
   hear: function(baby) {
@@ -17,12 +19,13 @@ module.exports = {
     return actions.toString();
   },
   do: function(actions) {
-    if(actions === 'Pañal'){
-      return '7 horas 30 minutos';
-    }
-    if(actions === 'Alimentar'){
-      return '7 horas 0 minutos';
-    }
-    return '7 horas 50 minutos';
+    var current_sleep_time = sleep_time.new();
+
+    var time;
+    actions.split(/\s-\s/).forEach(function(action) {
+      time = current_sleep_time.extract(action_times_in_minutes[action]);
+    });
+
+    return time;
   }
 };
