@@ -24,4 +24,22 @@ describe('Father', function(){
     });
   });
 
+  describe('when hears "Bua-Bua-Bua-Bua"', function(){
+    it('should do "Alimentar - Alimentar - Alimentar - Alimentar"', function(){
+      var crying = 'Bua-Bua-Bua-Bua';
+      var expected_action = 'Alimentar - Alimentar - Alimentar - Alimentar';
+
+      father.hear(crying).should.be.exactly(expected_action);
+    });
+  });
+
+  describe('when hears "Mua-Gua-Mua-Bua"', function(){
+    it('should do "Pañal - Chupón - Pañal - Alimentar"', function(){
+      var crying = 'Mua-Gua-Mua-Bua';
+      var expected_action = 'Pañal - Chupón - Pañal - Alimentar';
+
+      father.hear(crying).should.be.exactly(expected_action);
+    });
+  });
+
 });
