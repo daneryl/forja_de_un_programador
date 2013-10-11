@@ -34,4 +34,11 @@ describe('actions', function(){
     });
   });
 
+  describe('when transforming actions to string', function(){
+    it('should concatenate actions like "Action - Action2"', function(){
+      actions.actions = ['Action', 'Action2'];
+      actions.toString().should.be.exactly('Action - Action2');
+    });
+  });
+
 });

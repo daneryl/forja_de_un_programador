@@ -12,6 +12,10 @@ var actions = {
 
   add: function(crying) {
     this.actions.push(actions_for_cryings[crying]);
+  },
+
+  toString: function() {
+    return this.actions.join(' - ');
   }
 
 };
