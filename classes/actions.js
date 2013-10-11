@@ -19,17 +19,17 @@ var actions = {
 
     result.forEach(function(action, index) {
 
-      if(result[index+1] && action === 'Pañal' && result[index+1] === 'Alimentar'){
+      if(action === 'Pañal' && result[index+1] === 'Alimentar'){
         result[index] += ' Alimentar';
         result.splice(index+1, 1);
       }
 
-      if(result[index+1] && action === 'Alimentar' && result[index+1] === 'Chupón'){
+      if(action === 'Alimentar' && result[index+1] === 'Chupón'){
         result[index] += ' Chupón';
         result.splice(index+1, 1);
       }
 
-      if(result[index+1] && result[index+2] && action === 'Chupón' && result[index+1] === 'Alimentar' && result[index+2] === 'Pañal'){
+      if(action === 'Chupón' && result[index+1] === 'Alimentar' && result[index+2] === 'Pañal'){
         result[index] += ' Alimentar Pañal';
         result.splice(index+1, 2);
       }
