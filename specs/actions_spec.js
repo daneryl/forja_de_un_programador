@@ -67,7 +67,16 @@ describe('actions', function(){
         actions.toString().should.be.exactly('Chupón - Chupón Alimentar Pañal');
       });
     });
-  });
 
+    describe('with "Bua-Gua-Bua-Mua" special case', function(){
+      it('should concatenate like "Alimentar - Chupón Alimentar Pañal"', function(){
+        actions.add('Bua');
+        actions.add('Gua');
+        actions.add('Bua');
+        actions.add('Mua');
+        actions.toString().should.be.exactly('Alimentar - Chupón Alimentar Pañal');
+      });
+    });
+  });
 
 });

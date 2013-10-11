@@ -6,6 +6,28 @@ var actions_for_cryings = {
   'Gua': 'Chupón'
 };
 
+var panal_alimentar_case = function(current_action, actions, current_action_index) {
+  if(current_action === 'Pañal' && actions[current_action_index+1] === 'Alimentar'){
+    actions[current_action_index] += ' Alimentar';
+    actions.splice(current_action_index+1, 1);
+  }
+};
+
+var alimentar_chupon_case = function(current_action, actions, current_action_index) {
+  if(current_action === 'Alimentar' && actions[current_action_index+1] === 'Chupón'){
+    actions[current_action_index] += ' Chupón';
+    actions.splice(current_action_index+1, 1);
+  }
+};
+
+var chupon_alimentar_panal_case = function(current_action, actions, current_action_index) {
+  if(current_action === 'Chupón' && actions[current_action_index+1] === 'Alimentar' && actions[current_action_index+2] === 'Pañal'){
+    actions[current_action_index] += ' Alimentar Pañal';
+    actions.splice(current_action_index+1, 2);
+  }
+};
+ 
+
 var actions = {
 
   actions: [],
@@ -18,23 +40,13 @@ var actions = {
     var result = this.actions;
 
     result.forEach(function(action, index) {
+      chupon_alimentar_panal_case(action, result, index);
+    });
 
-      if(action === 'Pañal' && result[index+1] === 'Alimentar'){
-        result[index] += ' Alimentar';
-        result.splice(index+1, 1);
-      }
-
-      if(action === 'Alimentar' && result[index+1] === 'Chupón'){
-        result[index] += ' Chupón';
-        result.splice(index+1, 1);
-      }
-
-      if(action === 'Chupón' && result[index+1] === 'Alimentar' && result[index+2] === 'Pañal'){
-        result[index] += ' Alimentar Pañal';
-        result.splice(index+1, 2);
-      }
-
-    }.bind(this));
+    result.forEach(function(action, index) {
+      alimentar_chupon_case(action, result, index);
+      panal_alimentar_case(action, result, index);
+    });
 
     return result.join(' - ');
   }
