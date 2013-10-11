@@ -3,6 +3,7 @@
 var cryings = [];
 
 module.exports = {
+
   awake: function(crying) {
     cryings = crying.split(/\s?-\s?/);
   },
@@ -12,4 +13,5 @@ module.exports = {
       action(crying);
     });
   }
+
 };

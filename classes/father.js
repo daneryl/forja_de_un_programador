@@ -10,6 +10,7 @@ var sleep_time = require('./sleep_time.js');
 var actions_factory = require('./actions.js');
 
 module.exports = {
+
   hear: function(baby) {
     var actions = actions_factory.new();
 
@@ -19,6 +20,7 @@ module.exports = {
 
     return actions.toString();
   },
+
   do: function(actions) {
     var current_sleep_time = sleep_time.new();
 
@@ -29,4 +31,5 @@ module.exports = {
 
     return time;
   }
+
 };
