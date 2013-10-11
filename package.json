@@ -1,0 +1,32 @@
+{
+  "name": "forja_de_un_programador",
+  "version": "0.0.1",
+  "description": "prueba de codigo",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/daneryl/forja_de_un_programador.git"
+  },
+  "keywords": [
+    "node"
+  ],
+  "author": "Joan Gallego Girona",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/daneryl/forja_de_un_programador/issues"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-mocha-cov": "0.0.7",
+    "should": "~2.0.1",
+    "grunt-contrib-jshint": "~0.6.4",
+    "grunt-contrib-watch": "~0.5.3"
+  },
+  "scripts": {
+    "blanket": {
+      "pattern": [
+        "classes"
+      ]
+    }
+  }
+}
