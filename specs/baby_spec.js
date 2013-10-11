@@ -20,8 +20,6 @@ describe('Baby', function(){
       expected_crys[0].should.be.exactly('cry1');
       expected_crys[1].should.be.exactly('cry2');
       expected_crys[2].should.be.exactly('cry3');
-
     });
   });
-
 });

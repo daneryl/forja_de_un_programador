@@ -24,6 +24,5 @@ describe('Sleep time', function(){
       time.toString().should.be.exactly('7 horas 30 minutos');
     });
   });
-
 });
 

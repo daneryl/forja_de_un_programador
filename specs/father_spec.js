@@ -41,5 +41,4 @@ describe('Father', function(){
       father.do(actions).toString().should.be.exactly('6 horas 40 minutos');
     });
   });
-
 });
