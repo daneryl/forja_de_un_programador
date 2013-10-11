@@ -7,13 +7,11 @@ var actions = {
 };
 
 module.exports = {
-  hear: function(crying) {
-
-    var cryings = crying.split('-');
+  hear: function(baby) {
 
     var result_action = [];
 
-    cryings.forEach(function(crying) {
+    baby.when_cry(function(crying) {
       result_action.push(actions[crying]);
     });
 
