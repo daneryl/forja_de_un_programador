@@ -46,4 +46,13 @@ describe('Father', function(){
     });
   });
 
+  //describe('when hears "Bua-Mua-Bua-Bua"', function(){
+    //it('should do "Alimentar - Pañal Alimentar - Alimentar"', function(){
+      //baby.awake('Bua-Mua-Bua-Bua');
+      //var expected_action = 'Alimentar - Pañal Alimentar - Alimentar';
+
+      //father.hear(baby).should.be.exactly(expected_action);
+    //});
+  //});
+
 });
