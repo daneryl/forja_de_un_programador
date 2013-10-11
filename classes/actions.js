@@ -36,8 +36,6 @@ var actions = {
 
     }.bind(this));
 
-    console.log(result.join(' - '));
-
     return result.join(' - ');
   }
 
