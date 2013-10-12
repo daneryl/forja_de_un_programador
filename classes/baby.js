@@ -8,7 +8,7 @@ module.exports = {
     cryings = crying.split(/\s?-\s?/);
   },
 
-  when_cry: function(action) {
+  each_cry: function(action) {
     cryings.forEach(function(crying) {
       action(crying);
     });

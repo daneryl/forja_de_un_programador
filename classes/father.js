@@ -17,7 +17,7 @@ module.exports = {
   hear: function(baby) {
     var actions = actions_factory.new();
 
-    baby.when_cry(function(crying) {
+    baby.each_cry(function(crying) {
       actions.add(crying);
     });
 

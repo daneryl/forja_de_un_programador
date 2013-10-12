@@ -12,7 +12,7 @@ describe('Baby', function(){
 
       var expected_crys = [];
 
-      baby.when_cry(function(crying) {
+      baby.each_cry(function(crying) {
         expected_crys.push(crying);
       });
 
