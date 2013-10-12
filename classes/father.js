@@ -21,14 +21,14 @@ module.exports = {
       actions.add(crying);
     });
 
-    return actions.toString();
+    return actions;
   },
 
   do: function(actions) {
     var sleep_time = sleep_time_factory.new();
 
     var time;
-    actions.split(/\s-\s/).forEach(function(action) {
+    actions.forEach(function(action) {
       time = sleep_time.extract(action_times_in_minutes[action]);
     });
 
