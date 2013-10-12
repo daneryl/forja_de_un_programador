@@ -15,6 +15,6 @@ module.exports = function(cryings) {
     followers_lost = 200;
   }
 
-  return actions + ' ('+sleep_time.toString()+') ' + followers_lost + ' followers menos';
+  return actions + ' ('+sleep_time+') ' + followers_lost + ' followers menos';
 
 };

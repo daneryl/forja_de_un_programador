@@ -6,52 +6,47 @@ var actions_for_cryings = {
   'Gua': 'Chupón'
 };
 
-var panal_alimentar_case = function(current_action, actions, current_action_index) {
-  if(current_action === 'Pañal' && actions[current_action_index+1] === 'Alimentar'){
-    actions[current_action_index] += ' Alimentar';
-    actions.splice(current_action_index+1, 1);
-  }
-};
-
-var alimentar_chupon_case = function(current_action, actions, current_action_index) {
-  if(current_action === 'Alimentar' && actions[current_action_index+1] === 'Chupón'){
-    actions[current_action_index] += ' Chupón';
-    actions.splice(current_action_index+1, 1);
-  }
-};
-
-var chupon_alimentar_panal_case = function(current_action, actions, current_action_index) {
-  if(current_action === 'Chupón' && actions[current_action_index+1] === 'Alimentar' && actions[current_action_index+2] === 'Pañal'){
-    actions[current_action_index] += ' Alimentar Pañal';
-    actions.splice(current_action_index+1, 2);
-  }
-};
- 
 
 var actions = {
 
   actions: [],
 
   add: function(crying) {
-    this.actions.push(actions_for_cryings[crying]);
+    var action = actions_for_cryings[crying];
+    if(this.actions[this.actions.length-2] === 'Chupón' && this.actions[this.actions.length-1] === 'Alimentar' && action === 'Pañal'){
+      this.actions[this.actions.length-2] += ' '+this.actions[this.actions.length-1]+' '+action;
+      this.actions.splice(this.actions.length-1, 1);
+      return;
+    }
+    if(this.actions[this.actions.length-2] === 'Alimentar Chupón' && this.actions[this.actions.length-1] === 'Alimentar' && action === 'Pañal'){
+      this.actions[this.actions.length-2] = 'Alimentar';
+      this.actions[this.actions.length-1] = 'Chupón Alimentar Pañal';
+      return;
+    }
+    if(is_alimentar_chupon_case(action) || is_panal_alimentar_case(action)){
+      add_action_to_previous(action);
+      return;
+    }
+    this.actions.push(action);
   },
 
   toString: function() {
-    var result = this.actions;
-
-    result.forEach(function(action, index) {
-      chupon_alimentar_panal_case(action, result, index);
-    });
-
-    result.forEach(function(action, index) {
-      alimentar_chupon_case(action, result, index);
-      panal_alimentar_case(action, result, index);
-    });
-
-    return result.join(' - ');
+    return this.actions.join(' - ');
   }
 
 };
+
+function is_alimentar_chupon_case(action) {
+  return (actions.actions[actions.actions.length-1] === 'Alimentar' && action === 'Chupón');
+}
+
+function is_panal_alimentar_case(action) {
+  return (actions.actions[actions.actions.length-1] === 'Pañal' && action === 'Alimentar');
+}
+
+function add_action_to_previous(action){
+  actions.actions[actions.actions.length-1] += ' '+action;
+}
 
 module.exports = {
   new: function() {
