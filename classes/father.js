@@ -16,11 +16,7 @@ module.exports = {
 
   hear: function(baby) {
     var actions = actions_factory.new();
-
-    baby.each_cry(function(crying) {
-      actions.add(crying);
-    });
-
+    baby.each_cry(actions.add.bind(actions));
     return actions;
   },
 
