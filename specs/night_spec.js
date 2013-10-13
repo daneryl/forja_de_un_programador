@@ -70,12 +70,20 @@ describe('night (Integration tests)', function(){
     });
   });
 
-  //describe('when baby cryes "Bua-Mua-Gua-Bua-Mua-Bua-Bua-Mua-Gua-Bua"', function(){
-    //it('should report "Alimentar - Pañal - Chupón Alimentar Pañal - Alimentar - Alimentar - Pañal - Chupón - Alimentar (1 horas 35 minutos) 600 followers menos"', function(){
-      //var input = 'Bua-Mua-Gua-Bua-Mua-Bua-Bua-Mua-Gua-Bua';
-      //var expected = 'Alimentar - Pañal - Chupón Alimentar Pañal - Alimentar - Alimentar - Pañal - Chupón - Alimentar (1 horas 35 minutos) 600 followers menos';
-      //night(input).should.be.exactly(expected);
-    //});
-  //});
+  describe('when baby cryes "Bua-Mua-Gua-Bua-Mua-Bua-Bua-Mua-Gua-Bua"', function(){
+    it('should report "Alimentar - Pañal - Chupón Alimentar Pañal - Alimentar - Alimentar - Pañal - Chupón - Alimentar (1 horas 35 minutos) 600 followers menos"', function(){
+      var input = 'Bua-Mua-Gua-Bua-Mua-Bua-Bua-Mua-Gua-Bua';
+      var expected = 'Alimentar - Pañal - Chupón Alimentar Pañal - Alimentar - Alimentar - Pañal - Chupón - Alimentar (1 horas 35 minutos) 600 followers menos';
+      night(input).should.be.exactly(expected);
+    });
+  });
+
+  describe('when baby cryes "Bua-Bua-Bua-Bua-Bua-Bua-Bua-Bua"', function(){
+    it('should report "Alimentar - Alimentar - Alimentar - Alimentar - Alimentar - Alimentar - Alimentar - Alimentar (0 horas 0 minutos) 1200 followers menos"', function(){
+      var input = 'Bua-Bua-Bua-Bua-Bua-Bua-Bua-Bua';
+      var expected = 'Alimentar - Alimentar - Alimentar - Alimentar - Alimentar - Alimentar - Alimentar - Alimentar (0 horas 0 minutos) 1200 followers menos';
+      night(input).should.be.exactly(expected);
+    });
+  });
 
 });
