@@ -79,15 +79,5 @@ describe('actions', function(){
       actions.push('Action2');
       actions.toString().should.be.exactly('Action - Action2');
     });
-
-    //describe('with "Bua-Gua-Bua-Mua" special case', function(){
-      //it('should concatenate like "Alimentar - Chupón Alimentar Pañal"', function(){
-        //actions.add('Bua');
-        //actions.add('Gua');
-        //actions.add('Bua');
-        //actions.add('Mua');
-        //actions.toString().should.be.exactly('Alimentar - Chupón Alimentar Pañal');
-      //});
-    //});
   });
 });
