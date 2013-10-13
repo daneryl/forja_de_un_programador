@@ -8,7 +8,7 @@ describe('Baby', function(){
 
   describe('when crying', function(){
     it('should execute callback passed for each cry', function(){
-      baby.awake('cry1- cry2 -cry3');
+      baby.awake('cry1- cry2 -cry3-cry4');
 
       var expected_crys = [];
 
@@ -16,10 +16,11 @@ describe('Baby', function(){
         expected_crys.push(crying);
       });
 
-      expected_crys.should.have.lengthOf(3);
-      expected_crys[0].should.be.exactly('cry1');
-      expected_crys[1].should.be.exactly('cry2');
-      expected_crys[2].should.be.exactly('cry3');
+      expected_crys.should.have.lengthOf(4);
+      expected_crys.should.include('cry1');
+      expected_crys.should.include('cry2');
+      expected_crys.should.include('cry3');
+      expected_crys.should.include('cry4');
     });
   });
 });
