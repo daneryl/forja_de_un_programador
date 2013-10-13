@@ -10,10 +10,9 @@ module.exports = function (grunt) {
 
     mochacov: {
       options: {
-        //reporter: 'Nyan'
-        reporter: 'spec'
+        reporter: '<%= reporter  %>'
       },
-      all: ['specs/*.js']
+      all: ['<%= tests_to_launch  %>']
     },
 
     jshint: {
@@ -22,6 +21,7 @@ module.exports = function (grunt) {
         jshintrc: './.jshintrc',
       }
     },
+
     watch: {
       scripts: {
         files: ['specs/*.js', 'classes/*.js'],
@@ -34,7 +34,15 @@ module.exports = function (grunt) {
 
   });
 
+  grunt.config.set('tests_to_launch', './specs/*.js');
+  grunt.config.set('reporter', 'Nyan');
+
   grunt.registerTask('default', 'test');
   grunt.registerTask('test', ['jshint', 'mochacov']);
+  grunt.registerTask('integration', function() {
+    grunt.config.set('tests_to_launch', './specs/night_spec.js');
+    grunt.config.set('reporter', 'spec');
+    grunt.task.run(['mochacov']);
+  });
 
 };
