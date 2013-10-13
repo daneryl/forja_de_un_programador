@@ -24,7 +24,7 @@ module.exports = function (grunt) {
 
     watch: {
       scripts: {
-        files: ['specs/*.js', 'classes/*.js'],
+        files: ['specs/*.js', 'scripts/*.js'],
         tasks: ['test'],
         options: {
           spawn: false,
