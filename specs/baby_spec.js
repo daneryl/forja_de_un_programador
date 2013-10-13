@@ -4,7 +4,7 @@ require('should');
 
 describe('Baby', function(){
 
-  var baby = require('../classes/baby.js');
+  var baby = require('../scripts/baby.js');
 
   describe('when crying', function(){
     it('should execute callback passed for each cry', function(){

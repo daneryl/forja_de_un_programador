@@ -4,7 +4,7 @@ require('should');
 
 describe('Twitter account', function(){
 
-  var twitter_account = require('../classes/twitter_account.js');
+  var twitter_account = require('../scripts/twitter_account.js');
 
   describe('in the first two hours for every block of 1 to 30 minutes', function(){
     it('should loose 100 followers', function(){

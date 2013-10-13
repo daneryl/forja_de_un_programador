@@ -7,7 +7,7 @@ describe('actions', function(){
   var actions;
 
   beforeEach(function(){
-    actions = require('../classes/actions.js').new();
+    actions = require('../scripts/actions.js').new();
   });
 
   describe('when adding "Bua" cry', function(){

@@ -4,7 +4,7 @@ require('should');
 
 describe('night (Integration tests)', function(){
 
-  var night = require('../classes/night.js');
+  var night = require('../scripts/night.js');
 
   describe('when baby cryes "Bua-Bua-Bua-Bua"', function(){
     it('should report "Alimentar - Alimentar - Alimentar - Alimentar (4 horas 0 minutos) 0 followers menos"', function(){

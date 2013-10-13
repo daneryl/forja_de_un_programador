@@ -7,7 +7,7 @@ describe('Sleep time', function(){
   var sleep_time;
 
   beforeEach(function(){
-    sleep_time = require('../classes/sleep_time.js').new();
+    sleep_time = require('../scripts/sleep_time.js').new();
   });
 
   describe('when extracting minutes', function(){

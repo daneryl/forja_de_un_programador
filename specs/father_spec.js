@@ -4,8 +4,8 @@ require('should');
 
 describe('Father', function(){
 
-  var father = require('../classes/father.js');
-  var baby = require('../classes/baby.js');
+  var father = require('../scripts/father.js');
+  var baby = require('../scripts/baby.js');
 
   describe('when hears anything', function(){
     it('should return actions', function(){
