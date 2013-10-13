@@ -39,7 +39,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('default', 'test');
   grunt.registerTask('test', ['jshint', 'mochacov']);
-  grunt.registerTask('integration', function() {
+  grunt.registerTask('proposed_cases', function() {
     grunt.config.set('tests_to_launch', './specs/night_spec.js');
     grunt.config.set('reporter', 'spec');
     grunt.task.run(['mochacov']);
