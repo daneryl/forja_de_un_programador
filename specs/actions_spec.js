@@ -13,24 +13,27 @@ describe('actions', function(){
   describe('when adding "Bua" cry', function(){
     it('should add corresponding "Alimentar" action', function(){
       actions.add('Bua');
+
       actions.should.have.lengthOf(1);
-      actions[0].should.be.exactly('Alimentar');
+      actions.should.include('Alimentar');
     });
   });
 
   describe('when adding "Mua" cry', function(){
     it('should add corresponding "Pañal" action', function(){
       actions.add('Mua');
+
       actions.should.have.lengthOf(1);
-      actions[0].should.be.exactly('Pañal');
+      actions.should.include('Pañal');
     });
   });
 
   describe('when adding "Gua" cry', function(){
     it('should add corresponding "Chupón" action', function(){
       actions.add('Gua');
+
       actions.should.have.lengthOf(1);
-      actions[0].should.be.exactly('Chupón');
+      actions.should.include('Chupón');
     });
   });
 
@@ -39,7 +42,7 @@ describe('actions', function(){
       actions.add('Mua');
       actions.add('Bua');
       actions.should.have.lengthOf(1);
-      actions[0].should.be.exactly('Pañal Alimentar');
+      actions.should.include('Pañal Alimentar');
     });
   });
 
@@ -47,8 +50,9 @@ describe('actions', function(){
     it('should add special case "Alimentar Chupón" action', function(){
       actions.add('Bua');
       actions.add('Gua');
+
       actions.should.have.lengthOf(1);
-      actions[0].should.be.exactly('Alimentar Chupón');
+      actions.should.include('Alimentar Chupón');
     });
   });
 
@@ -58,6 +62,7 @@ describe('actions', function(){
       actions.add('Gua');
       actions.add('Bua');
       actions.add('Mua');
+
       actions.should.have.lengthOf(2);
       actions.toString().should.be.exactly('Alimentar - Chupón Alimentar Pañal');
     });
@@ -68,8 +73,9 @@ describe('actions', function(){
       actions.add('Gua');
       actions.add('Bua');
       actions.add('Mua');
+
       actions.should.have.lengthOf(1);
-      actions[0].should.be.exactly('Chupón Alimentar Pañal');
+      actions.should.include('Chupón Alimentar Pañal');
     });
   });
 
