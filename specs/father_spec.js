@@ -10,8 +10,11 @@ describe('Father', function(){
   describe('when hears anything', function(){
     it('should return actions', function(){
       baby.awake('Bua-Mua');
-      father.hear(baby)[0].should.be.exactly('Alimentar');
-      father.hear(baby)[1].should.be.exactly('Pañal');
+      var actions = father.hear(baby);
+
+      actions.should.have.lengthOf(2);
+      actions.should.include('Alimentar');
+      actions.should.include('Pañal');
     });
   });
 
