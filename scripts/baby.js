@@ -6,6 +6,7 @@ module.exports = {
 
   awake: function(crying) {
     cryings = crying.split(/\s?-\s?/);
+    return this;
   },
 
   each_cry: function(action) {

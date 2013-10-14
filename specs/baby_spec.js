@@ -6,6 +6,12 @@ describe('Baby', function(){
 
   var baby = require('../scripts/baby.js');
 
+  describe('when awake', function(){
+    it('should return itself', function(){
+      baby.awake('cry').should.have.property('each_cry');
+    });
+  });
+
   describe('when crying', function(){
     it('should execute callback passed for each cry', function(){
       baby.awake('cry1- cry2 -cry3-cry4');
