@@ -6,6 +6,15 @@ var actions_for_cryings = {
   'Gua': 'Chupón'
 };
 
+var action_times_in_minutes = {
+  'Chupón': 10,
+  'Pañal': 30,
+  'Alimentar': 60,
+  'Pañal Alimentar': 75,
+  'Alimentar Chupón': 65,
+  'Chupón Alimentar Pañal': 75
+};
+
 var actions = [];
 actions.raw_actions = [];
 actions.toString = function(){
@@ -23,6 +32,14 @@ actions.add = function(crying) {
   to_compute_actions.forEach(function(action) {
     actions.push(action);
   });
+};
+
+actions.time = function() {
+  var time = 0;
+  this.forEach(function(action) {
+    time += action_times_in_minutes[action];
+  });
+  return time;
 };
 
 function compute_chupon_alimentar_panal_case(actions){

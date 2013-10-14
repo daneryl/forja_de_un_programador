@@ -86,4 +86,20 @@ describe('actions', function(){
       actions.toString().should.be.exactly('Action - Action2');
     });
   });
+
+  describe('when actions time()', function(){
+    it('should return 60 minutes for Alimentar action', function(){
+      actions.push('Alimentar');
+      actions.time().should.be.exactly(60);
+    });
+    it('should return the total time for all actions', function(){
+      actions.push('Alimentar');
+      actions.push('Pañal');
+      actions.push('Chupón');
+      actions.push('Pañal Alimentar');
+      actions.push('Alimentar Chupón');
+      actions.push('Chupón Alimentar Pañal');
+      actions.time().should.be.exactly(315);
+    });
+  });
 });
