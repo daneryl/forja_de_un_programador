@@ -42,9 +42,11 @@ function add_action_to_previous(action){
   actions[actions.length-1] += ' '+action;
 }
 
-module.exports = {
-  new: function() {
-    actions.splice(0, actions.length);
-    return actions;
-  }
-};
+function empty_actions(){
+  actions.splice(0, actions.length);
+}
+
+exports.new = function() {
+  empty_actions();
+  return actions;
+}

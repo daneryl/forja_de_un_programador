@@ -16,11 +16,7 @@ var sleep_time = {
   }
 };
 
-module.exports = {
-
-  new: function() {
-    minutes_remaining.minutes = 8*60;
-    return sleep_time;
-  }
-
+exports.new = function() {
+  minutes_remaining.minutes = 8*60;
+  return sleep_time;
 };
