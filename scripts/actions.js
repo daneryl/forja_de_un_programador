@@ -7,46 +7,57 @@ var actions_for_cryings = {
 };
 
 var actions = [];
-actions.add = function(crying) {
-  var action = actions_for_cryings[crying];
-  if(this[this.length-2] === 'Chupón' && this[this.length-1] === 'Alimentar' && action === 'Pañal'){
-    this[this.length-2] += ' '+this[this.length-1]+' '+action;
-    this.splice(this.length-1, 1);
-    return;
-  }
-  if(this[this.length-2] === 'Alimentar Chupón' && this[this.length-1] === 'Alimentar' && action === 'Pañal'){
-    this[this.length-2] = 'Alimentar';
-    this[this.length-1] = 'Chupón Alimentar Pañal';
-    return;
-  }
-  if(is_alimentar_chupon_case(action) || is_panal_alimentar_case(action)){
-    add_action_to_previous(action);
-    return;
-  }
-  this.push(action);
-};
-
+actions.raw_actions = [];
 actions.toString = function(){
   return this.join(' - ');
 };
+actions.add = function(crying) {
+  var action = actions_for_cryings[crying];
+  this.raw_actions.push(action);
+  var to_compute_actions = this.raw_actions.slice(0);
 
-function is_alimentar_chupon_case(action) {
-  return (actions[actions.length-1] === 'Alimentar' && action === 'Chupón');
+  compute_chupon_alimentar_panal_case(to_compute_actions);
+  compute_rest_cases(to_compute_actions);
+
+  empty_actions();
+  to_compute_actions.forEach(function(action) {
+    actions.push(action);
+  });
+};
+
+function compute_chupon_alimentar_panal_case(actions){
+  actions.forEach(function(current_action, index) {
+    if(current_action === 'Chupón' && actions[index+1] === 'Alimentar' && actions[index+2] === 'Pañal'){
+      actions[index] += ' Alimentar Pañal';
+      actions.splice(index+1, 2);
+    }
+  });
 }
 
-function is_panal_alimentar_case(action) {
-  return (actions[actions.length-1] === 'Pañal' && action === 'Alimentar');
-}
+function compute_rest_cases(actions){
+  actions.forEach(function(current_action, index) {
+    if(current_action === 'Pañal' && actions[index+1] === 'Alimentar'){
+      actions[index] += ' Alimentar';
+      actions.splice(index+1, 1);
+    }
 
-function add_action_to_previous(action){
-  actions[actions.length-1] += ' '+action;
+    if(current_action === 'Alimentar' && actions[index+1] === 'Chupón'){
+      actions[index] += ' Chupón';
+      actions.splice(index+1, 1);
+    }
+  });
 }
 
 function empty_actions(){
   actions.splice(0, actions.length);
 }
 
-exports.new = function() {
+function empty_all(){
   empty_actions();
-  return actions;
+  actions.raw_actions.splice(0, actions.raw_actions.length);
 }
+
+exports.new = function() {
+  empty_all();
+  return actions;
+};
