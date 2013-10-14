@@ -11,4 +11,4 @@ La forja de un programador - nodejs
  - Instalar globalmente grunt-cli (`sudo npm install grunt-cli -g`)
  - instalar dependencias (`npm install`) en la carpeta raiz del proyecto
  - `grunt` Lanza todos los tests
- - `grunt proposed_cases` lanza tests de integracoón basados en los input/outputs propuestos en el ejercicio
+ - `grunt proposed_cases` lanza tests de integración basados en los input/outputs propuestos en el ejercicio
